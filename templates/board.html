@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for post in post_list%}
+        <p>{{ post.author }}</p>
+        <p><img src="{{ post.image.url }}" alt="image" style="width: 300px"></p>
+        <p>{{ post.description }}</p>
+        <p>{{ post.created }}</p>
+    {% endfor %}
+{% endblock %}
