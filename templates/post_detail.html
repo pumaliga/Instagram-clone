@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p><img src="{{ post.image.url }}" alt="image" style="width: 400px"></p>
+    <p>{{ post.author }}</p>
+    <p>{{ post.description }}</p>
+    <p>{{ post.created }}</p>
+{% endblock %}

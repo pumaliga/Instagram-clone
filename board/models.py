@@ -15,8 +15,11 @@ class CustomUser(AbstractUser):
 class Post(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
-    description = models.CharField(max_length=250)
+    description = models.TextField(max_length=300)
     created = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ['-created']
 
     def __str__(self):
         return f"{self.author}"
