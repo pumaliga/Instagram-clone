@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 
+{% block title %}
+    Blog
+{% endblock %}
+
 {% block content %}
     <div class="d-flex flex-column" style="align-items: center">
         {% for post in post_list%}
-            <div class="card " style="width: 40rem;">
-                <img src="{{ post.image.url }}" class="card-img-top" alt="image">
+            <div class="card " style="width: 40rem; border-radius: 0">
+                <div class="card-body">
+                    <p class="card-text">{{ post.author }}</p>
+                </div>
+                <img src="{{ post.image.url }}" class="card-img-top" alt="image" style="border-radius: 0">
                 <div class="card-body">
                     <p class="card-text">{{ post.description }}</p>
                 </div>
             </div>
+            <br/>
     {#        <p>{{ post.author }}</p>#}
     {#        <p><img src="{{ post.image.url }}" alt="image" style="width: 300px"></p>#}
     {#        <p>{{ post.description }}</p>#}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ customuser.first_name }} (@{{ customuser.username }})
+{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex justify-content-evenly">
+        <div>
+            <img class="rounded-circle" src="{{ customuser.avatar.url }}" alt="avatar" style="width:200px; height: 200px">
+        </div>
+        <div>
+           <h2>{{ customuser.username }}</h2>
+        </div>
+        <div>
+            <a href="{% url 'profile-update' customuser.pk %}">
+                <button type="button" class="btn btn-dark">Update Profile</button>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="block-img">
+            {% for post in all_posts %}
+                <div style="width: 33%">
+                    <img src="{{ post.image.url }}" alt="image" class="img-thumbnail" style="padding: 0; border-radius: 0">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
