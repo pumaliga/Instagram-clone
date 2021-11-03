@@ -2,9 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import request
 from django.utils import timezone
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
-from board.forms import PostCreate, RegistrationForm, ProfileUpdateForm
+from board.forms import PostCreate, RegistrationForm, PostUpdateForm
 from board.models import Post, CustomUser
 
 
@@ -47,6 +47,21 @@ class DetailPost(LoginRequiredMixin, DetailView):
     template_name = 'post_detail.html'
 
 
+class PostUpdate(UpdateView):
+    model = Post
+    form_class = PostUpdateForm
+    template_name = 'post_update.html'
+    success_url = '/'
+
+    def get_success_url(self):
+        return f"/profile/{self.request.user.pk}/"
+
+
+class PostDelete(DeleteView):
+    model = Post
+    success_url = '/'
+
+
 class ProfileView(LoginRequiredMixin, DetailView):
     login_url = 'login/'
     model = CustomUser
@@ -63,7 +78,6 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     login_url = 'login/'
     model = CustomUser
     fields = ['avatar', 'username', 'first_name', 'last_name']
-    # form_class = ProfileUpdateForm
     template_name = 'profile_update.html'
 
     def get_success_url(self):

@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p><img src="{{ post.image.url }}" alt="image" style="width: 400px"></p>
-    <p>{{ post.author }}</p>
-    <p>{{ post.description }}</p>
-    <p>{{ post.created }}</p>
+    <div class="post-detail" style="text-align: center;">
+        <p><img src="{{ post.image.url }}" alt="image" style="width: 40rem;"></p>
+        <p>{{ post.description }}</p>
+        <p>{{ post.created }}</p>
+        <div class="d-flex justify-content-center">
+            <div>
+                <a href="{% url "post-update" post.pk %}"><span class="material-icons" style="color: black">update</span></a>
+            </div>
+            <div>
+                <form method="post" action="{% url 'post-delete' post.pk %}">
+                    {% csrf_token %}
+                    <button style="border-style:none; background: whitesmoke"><span class="material-icons" style="color: #ff3d58">delete</span></button>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

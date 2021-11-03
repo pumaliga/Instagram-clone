@@ -7,13 +7,18 @@
 {% block content %}
     <div class="d-flex flex-column" style="align-items: center">
         {% for post in post_list%}
-            <div class="card " style="width: 40rem; border-radius: 0">
-                <div class="card-body">
-                    <p class="card-text">{{ post.author }}</p>
-                </div>
-                <img src="{{ post.image.url }}" class="card-img-top" alt="image" style="border-radius: 0">
+            <div class="card " style="width: 40rem; border-radius: 0;">
+{#                <div class="card-body">#}
+{#                    <a href="{% url 'profile' post.author.pk  %}" ></a>#}
+{#                    <p class="card-text"><a href="{% url 'profile' post.author.pk  %}" >{{ post.author }}</a></p>#}
+{#                </div>#}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="image"
+                     style="border-radius: 0; height: 30rem; ">
                 <div class="card-body">
                     <p class="card-text">{{ post.description }}</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> Created: {{ post.created }} by {{ post.author }}</p>
                 </div>
             </div>
             <br/>

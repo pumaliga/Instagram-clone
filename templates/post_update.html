@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update Post
+{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-dark" style="border-radius: 0;">Update</button>
+        </form>
+    </div>
+{% endblock %}

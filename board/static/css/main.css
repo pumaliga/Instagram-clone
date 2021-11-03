@@ -1,11 +1,29 @@
-/*.content {*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*}*/
-/*.block-img {*/
-/*   width: 33%;*/
-/*}*/
+body{
+  background-color: whitesmoke;
+}
 
-/*.btn:active {*/
-/*    outline:none*/
-/*}*/
+.round {
+    border-radius: 100px; /* Радиус скругления */
+    height: 200px;
+    width: 200px;
+}
+
+.container {
+    margin: 0 auto; /* это ставит контейнер по центру */
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between; /* растягивает все блоки равномерно */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.image {
+    margin-top: 30px;
+    width: 300px;
+}
+
+.post-detail{
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
