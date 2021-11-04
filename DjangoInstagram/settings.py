@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'board'
+    'board',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'board.CustomUser'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

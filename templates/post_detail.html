@@ -5,16 +5,18 @@
         <p><img src="{{ post.image.url }}" alt="image" style="width: 40rem;"></p>
         <p>{{ post.description }}</p>
         <p>{{ post.created }}</p>
+        {% if post.author == request.user %}
         <div class="d-flex justify-content-center">
-            <div>
-                <a href="{% url "post-update" post.pk %}"><span class="material-icons" style="color: black">update</span></a>
+                <div>
+                    <a href="{% url "post-update" post.pk %}"><span class="material-icons" style="color: black">update</span></a>
+                </div>
+                <div>
+                    <form method="post" action="{% url 'post-delete' post.pk %}">
+                        {% csrf_token %}
+                        <button style="border-style:none; background: whitesmoke"><span class="material-icons" style="color: #ff3d58">delete</span></button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <form method="post" action="{% url 'post-delete' post.pk %}">
-                    {% csrf_token %}
-                    <button style="border-style:none; background: whitesmoke"><span class="material-icons" style="color: #ff3d58">delete</span></button>
-                </form>
-            </div>
-        </div>
+        {% endif %}
     </div>
 {% endblock %}

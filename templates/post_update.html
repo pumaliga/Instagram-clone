@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
+
 {% block title %}
     Update Post
 {% endblock %}
 
 {% block content %}
-    <div style="text-align: center;">
+    <div class="col-9 col-sm-9 col-md-6 col-lg-5 mx-auto" style="background-color: whitesmoke">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-dark" style="border-radius: 0;">Update</button>
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-dark" style="border-radius: 0; margin-top: 5px; ">Update</button>
         </form>
     </div>
 {% endblock %}
