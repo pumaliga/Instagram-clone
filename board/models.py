@@ -6,7 +6,7 @@ from django.utils import timezone
 
 
 class CustomUser(AbstractUser):
-    avatar = models.ImageField(upload_to='avatars/', default='avatar.png')
+    avatar = models.ImageField(upload_to='avatars/', default='avatar.jpg')
 
     def __str__(self):
         return f"{self.username}"
